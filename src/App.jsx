@@ -1,13 +1,18 @@
 
 import './App.css'
 import Apifile from './components/Apifile'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Register from './components/Register.jsx'
 
 function App() {
 
   return (
-    <>
-      <Apifile/>
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Apifile/>}/>
+      <Route path='/register' element={<Register/>}/>
+    </Routes>
+    </BrowserRouter>
   )
 }
 
