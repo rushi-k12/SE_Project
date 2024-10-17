@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import '../styles/Apifile.css';
+import { Link } from 'react-router-dom';
 
 
 function Apifile() {
@@ -46,11 +47,9 @@ function Apifile() {
         </Nav.Item>
       </div>
       <div className="navbar-right login-signup">
+        
         <Nav.Item>
-          <Nav.Link eventKey="link-2">Login</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="link-3">Sign Up</Nav.Link>
+          <Nav.Link as={Link} to="/register"eventKey="link-3">Login</Nav.Link>
         </Nav.Item>
       </div>
     </Nav>
