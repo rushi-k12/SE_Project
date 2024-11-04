@@ -31,6 +31,7 @@ function BitPrediction() {
 
     try {
       const response = await axios.post('http://127.0.0.1:5000/api/bitcoin/predict', { date: predictionDate });
+      
       setPredictedValue(response.data.predicted_value);
       setForecast(response.data.forecast);
      
@@ -44,8 +45,7 @@ function BitPrediction() {
     <div className="container">
       <h1>Bitcoin Price Prediction</h1>
 
-      {/* Historical Data */}
-      <h2>Historical Data</h2>
+     
       <table className="historical-table">
         <thead>
           <tr>
@@ -72,11 +72,12 @@ function BitPrediction() {
           value={predictionDate}
           onChange={(e) => setPredictionDate(e.target.value)}
         />
+        
         <button className="predict-button" onClick={handlePredict}>Predict</button>
-       
+        
         {predictedValue && (
           <div className="prediction-result">
-            <h3>Predicted Value for {predictionDate}: <span>${predictedValue}</span></h3>
+            <h3>Predicted Value for {predictionDate}: <span>${-1*predictedValue.toFixed(2)}</span></h3>
           </div>
         )}
       </div>
