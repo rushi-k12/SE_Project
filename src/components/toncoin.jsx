@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/bitprediction.css'; 
 
-function Bitprediction() {
+function ToncoinPrediction() {
   
   const [historicalData, setHistoricalData] = useState([]);
   const [predictionDate, setPredictionDate] = useState('');
@@ -11,7 +11,7 @@ function Bitprediction() {
 
   
   useEffect(() => {
-    axios.get('http://127.0.0.1:5000/api/bitcoin/historical')
+    axios.get('http://127.0.0.1:5000/api/toncoin/historical')
       .then(response => {
         if (Array.isArray(response.data)) {
           setHistoricalData(response.data);
@@ -30,7 +30,7 @@ function Bitprediction() {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/bitcoin/predict', { date: predictionDate });
+      const response = await axios.post('http://127.0.0.1:5000/api/toncoin/predict', { date: predictionDate });
       
       setPredictedValue(response.data.predicted_value);
       setForecast(response.data.forecast);
@@ -43,7 +43,7 @@ function Bitprediction() {
 
   return (
     <div className="container">
-      <h1>Bitcoin Price Prediction</h1>
+      <h1>Ton coin Price Prediction</h1>
 
      
       <table className="historical-table">
@@ -85,4 +85,4 @@ function Bitprediction() {
   );
 }
 
-export default Bitprediction;
+export default ToncoinPrediction;
