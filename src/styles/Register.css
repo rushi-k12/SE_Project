@@ -3,6 +3,44 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+<<<<<<< HEAD
+    padding: 0px;
+    margin: 0;
+  }
+  .out-container{
+    width: 70%;
+    height: 80vh;
+    border-radius: 40px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+  }
+  .r-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #45c1f3;
+    
+  }
+  .form-container {
+    background-color: white;
+    padding:20px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    height: 98%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    transition: transform 0.5s ease;
+
+  }
+
+=======
   
     margin: 0;
     background-color: #1a6aa0;
@@ -24,6 +62,7 @@ body {
     width: 300px;
   }
   
+>>>>>>> origin/main
   .form-toggle {
     display: flex;
     justify-content: space-between;
@@ -39,15 +78,28 @@ body {
     font-size: 16px;
     border-radius: 10px 10px 0 0;
   }
+<<<<<<< HEAD
+  .form-toggle button:focus{
+    outline: none;
+  }
+  
+  .form-toggle .active {
+    background-color: #1874ad;
+=======
   
   .form-toggle .active {
     background-color: #033452;
+>>>>>>> origin/main
     color: white;
   }
   
   .form {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
+    gap: 20px;
+=======
+>>>>>>> origin/main
   }
   
   .form h2 {
@@ -63,13 +115,21 @@ body {
   
   .form button {
     padding: 10px;
+<<<<<<< HEAD
+    background-color:#1874ad;
+=======
     background-color:#033452;
+>>>>>>> origin/main
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
   
+<<<<<<< HEAD
+  
+=======
+>>>>>>> origin/main
   .form a {
     color: #007bff;
     text-decoration: none;
@@ -80,4 +140,28 @@ body {
   .form p {
     text-align: center;
   }
+<<<<<<< HEAD
   
+  .login-img{
+    width:50%;
+    height: 100%;
+    transition: transform 0.8s ease;
+    display: flex;
+    align-items: center;
+  }
+  
+  .move-left{
+    transform: translateX(-0%);
+  }
+  .move-right{
+    transform: translateX(130%);
+  }
+  .img-right{
+    transform: translateX(0%);
+  }
+  .img-left{
+    transform: translateX(-100%);
+  }
+=======
+  
+>>>>>>> origin/main

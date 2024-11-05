@@ -13,6 +13,14 @@ CORS(app)  # Apply CORS globally for all routes
 with open('bitcoin_model.pkl', 'rb') as f:
     final_model = pickle.load(f)
 
+<<<<<<< HEAD
+historical_data = pd.read_csv('bitcoin_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
+
+@app.route('/api/bitcoin/historical')
+def get_historical_data():
+
+    processed_data = historical_data.to_dict(orient='records')
+=======
 bitcoinhistorical_data = pd.read_csv('bitcoin_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
 bnbhistorical_data = pd.read_csv('bnb_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
 Dogecoinhistorical_data = pd.read_csv('Dogecoin_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
@@ -28,6 +36,7 @@ xrphistorical_data = pd.read_csv('xrp.csv', parse_dates=['Date'], index_col='Dat
 def get_bitcoin_historical_data():
 
     processed_data = bitcoinhistorical_data.to_dict(orient='records')
+>>>>>>> origin/main
     return jsonify(processed_data)
 
 @app.route('/api/bitcoin/predict', methods=['POST'])
@@ -36,6 +45,9 @@ def predict_bitcoin_price():
         input_date = request.json.get('date')
         logging.debug(f'Received prediction request for date: {input_date}')
 
+<<<<<<< HEAD
+        last_date = historical_data.index[-1]
+=======
         last_date = bitcoinhistorical_data.index[-1]
         future_dates = pd.date_range(start=last_date, end=input_date, freq='D')
         forecast = final_model.forecast(len(future_dates))
@@ -263,6 +275,7 @@ def predict_xrp_price():
         logging.debug(f'Received prediction request for date: {input_date}')
 
         last_date = xrphistorical_data.index[-1]
+>>>>>>> origin/main
         future_dates = pd.date_range(start=last_date, end=input_date, freq='D')
         forecast = final_model.forecast(len(future_dates))
 

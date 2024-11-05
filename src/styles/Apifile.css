@@ -1,7 +1,16 @@
 /* Navbar.css */
+<<<<<<< HEAD
+.apifile{
+  width: 100vw;
+  height: 100vh;
+}
+.nav {
+    background-color: white;
+=======
 
 .nav {
     background-color: #000000;
+>>>>>>> origin/main
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -67,9 +76,13 @@
 
 .crypto-container {
     width: 100%;
+<<<<<<< HEAD
+    padding: 30px;
+=======
     max-width: 1300px;
     margin: 0 auto;
     padding: 20px;
+>>>>>>> origin/main
     border-radius: 10px;
     background-color: #f4f4f9;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -117,7 +130,11 @@
   
   .mover ul {
     list-style: none;
+<<<<<<< HEAD
+    padding: 20px;
+=======
     padding: 0;
+>>>>>>> origin/main
   }
   
   .mover-item {
@@ -214,7 +231,11 @@
   .top-movers {
     display: flex;
     justify-content: space-between;
+<<<<<<< HEAD
+    gap: 20px;
+=======
     gap: 100px;
+>>>>>>> origin/main
   }
   
   .mover {
@@ -246,6 +267,14 @@
   
   @keyframes scroll {
     0% {
+<<<<<<< HEAD
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-200%);
+    }
+  }
+=======
       transform: translateX(80%);
     }
 
@@ -258,4 +287,5 @@
     }
   }
   
+>>>>>>> origin/main
   
