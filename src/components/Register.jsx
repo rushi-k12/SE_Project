@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "../styles/Register.css"
 import { useNavigate } from 'react-router-dom';
 
+
 export default function Register() {
   const[isLogin, setIsLogin]= useState(true);
   const [signinData,setInData]=useState({});
@@ -107,11 +108,12 @@ const handleSignUpsubmit = async (e) => {
 
     return (
     
-    <div className='container'>
-      <div className='form-container'>
+    <div className='r-container'>
+      <div className='out-container'>
+      <div className={isLogin?'form-container move-right':'form-container move-left'}>
         <div className='form-toggle'>
-          <button className={isLogin ? 'active':""} onClick={()=>setIsLogin(true)}>Login</button>
-          <button className={!isLogin ? 'active':""}onClick={()=>setIsLogin(false)}>SignUP</button>
+          <button className={isLogin ? 'active ':""} onClick={()=>setIsLogin(true)}>Login</button>
+          <button className={!isLogin ? 'active':""}onClick={()=>setIsLogin(false)}>Signup</button>
         </div>
         {isLogin ? <>
         <form className='form' onSubmit={submitInhandle}>
@@ -120,15 +122,15 @@ const handleSignUpsubmit = async (e) => {
           <input type='password'id="password" value={signinData.password} placeholder='password'onChange={signinhandle}></input>
           <a href='#'>Forgot Password?</a>
           <button type='submit'>Login</button>
-          <p>Not a Member? <a href='#' onClick={()=>setIsLogin(false)}>SignUp Now</a></p>
+          <p>Not a Member? <a href='#' onClick={()=>setIsLogin(false)}>Signup Now</a></p>
         </form>
         </>:<>
         <form className='form' onSubmit={handleSignUpsubmit}>
-        <h2>SignUp Form</h2>
+        <h2>Signup Form</h2>
           <input type='email'id="email"value={signupData.email} placeholder='Email'onChange={signUphandle}></input>
           <input type='password'id="password"  value={signupData.password}placeholder='password'onChange={signUphandle}></input>
           <input type='password'id='comformpassword'value={signupData.comformpassword} placeholder='confirm password'onChange={signUphandle}></input>
-          <button type='submit'>SUBMIT</button>
+          <button type='submit'>Signup</button>
 
         </form>
         </>}
@@ -136,7 +138,10 @@ const handleSignUpsubmit = async (e) => {
             {iferror?<p>{errmsg}</p>:null}
            </div>
       </div>
-      
+      <div className={isLogin?'login-img img-left ':'login-img img-right'}>
+        {isLogin?<img src="/login.svg" alt="" />:<img src="Signup.svg" alt="" />}
+      </div>
+      </div>
     </div>
   )
   }

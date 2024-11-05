@@ -1,7 +1,10 @@
 /* Navbar.css */
-
+.apifile{
+  width: 100vw;
+  height: 100vh;
+}
 .nav {
-    background-color: #000000;
+    background-color: white;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -67,9 +70,7 @@
 
 .crypto-container {
     width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     background-color: #f4f4f9;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -117,7 +118,7 @@
   
   .mover ul {
     list-style: none;
-    padding: 0;
+    padding: 20px;
   }
   
   .mover-item {

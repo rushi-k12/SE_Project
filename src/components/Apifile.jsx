@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import '../styles/Apifile.css';
 import { Link } from 'react-router-dom';
 
@@ -34,10 +31,12 @@ function Apifile() {
       })
       .catch(err => console.log(err));
   }, []);
+  console.log("currency data is:",currency);
+  
 
   return (
-    <>
-      <Nav className="nav" activeKey="/home">
+    <div className='apifile'>
+      <Nav className="nav" >
       <div className="navbar-left">
         <Nav.Item>
           <Nav.Link href="/home" className="n">Home</Nav.Link>
@@ -137,7 +136,7 @@ function Apifile() {
         </table>
       </div>
     </div>
-    </>
+    </div>
   );
 }
 
