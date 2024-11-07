@@ -44,25 +44,6 @@ function EthereumPrediction() {
   return (
     <div className="container">
       <h1>Ethereum Price Prediction</h1>
-
-     
-      <table className="historical-table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Array.isArray(historicalData) && historicalData.length > 0 && historicalData.map((data, index) => (
-            <tr key={index}>
-              <td>{data.Date}</td>
-              <td>{data.Price}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
   
       <div className="prediction-section">
         <h2>Predict Future Value</h2>

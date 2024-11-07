@@ -161,7 +161,7 @@ def predict_tether_price():
     try:
         input_date = request.json.get('date')
         logging.debug(f'Received prediction request for date: {input_date}')
-
+        
         last_date = tetherhistorical_data.index[-1]
         future_dates = pd.date_range(start=last_date, end=input_date, freq='D')
         forecast = final_model.forecast(len(future_dates))
@@ -236,7 +236,7 @@ def predict_usdc_price():
     try:
         input_date = request.json.get('date')
         logging.debug(f'Received prediction request for date: {input_date}')
-
+     
         last_date = usdchistorical_data.index[-1]
         future_dates = pd.date_range(start=last_date, end=input_date, freq='D')
         forecast = final_model.forecast(len(future_dates))
@@ -245,6 +245,8 @@ def predict_usdc_price():
             "predicted_value": forecast[-1],
             "forecast": forecast.tolist(),
         }
+   
+
         return jsonify(prediction_data)
     except Exception as e:
         logging.error(f'Error during prediction: {e}')
@@ -265,7 +267,7 @@ def predict_xrp_price():
         last_date = xrphistorical_data.index[-1]
         future_dates = pd.date_range(start=last_date, end=input_date, freq='D')
         forecast = final_model.forecast(len(future_dates))
-
+  
         prediction_data = {
             "predicted_value": forecast[-1],
             "forecast": forecast.tolist(),
