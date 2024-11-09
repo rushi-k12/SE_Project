@@ -56,15 +56,23 @@ function Apifile() {
     <Link to="/predict">
           <button className="predict-button">Predict Bitcoin Price</button>
         </Link>
-
       <h1 className="heading">Crypto Currency Prices</h1>
+     <div className='search-out'>
+    <div class="search">
+        <input placeholder="Search..." type="text"/>
+        <button type="submit">Go</button>
+      </div>
+      </div>
+
+      {/* <div className='search'>
       <input
         type="text"
         className="search-bar"
-        placeholder="Search by name..."
+        placeholder="Search the crypto currency by name"
         onChange={(e) => setSearch(e.target.value)}
       />
-  
+      <i class="fa-solid fa-magnifying-glass"></i>
+      </div> */}
 
       {/* Top Movers Section */}
       <div className="top-movers">
