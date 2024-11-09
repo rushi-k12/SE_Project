@@ -1,17 +1,25 @@
 
 import './App.css';
 import Apifile from './components/Apifile';
-import Landingpage from './components/landingpage.jsx'
 import Bitprediction from './components/bitprediction';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Register from './components/Register.jsx'
+import BnbPrediction from './components/bnbprediction';
+import DogecoinPrediction from './components/Dogecoinprediction';
+import EthereumPrediction from './components/ethereumprediction';
+import SolanaPrediction from './components/solanaprediction';
+import TetherPrediction from './components/tether';
+import ToncoinPrediction from './components/toncoin';
+import TronPrediction from './components/tron';
+import UsdcPrediction from './components/usdc';
+import XRPPrediction from './components/xrp';
 
 function App() {
 
   return (
     <BrowserRouter>
     <Routes>
-    <Route path='/' element={<Apifile/>}/>
+      <Route path='/' element={<Apifile/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/predict/btc' element={<Bitprediction/>}/>
       <Route path='/predict/bnb' element={<BnbPrediction/>}/>
