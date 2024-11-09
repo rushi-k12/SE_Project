@@ -45,24 +45,6 @@ function SolanaPrediction() {
     <div className="container">
       <h1>Solana Price Prediction</h1>
 
-     
-      <table className="historical-table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Array.isArray(historicalData) && historicalData.length > 0 && historicalData.map((data, index) => (
-            <tr key={index}>
-              <td>{data.Date}</td>
-              <td>{data.Price}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
       {/* Prediction */}
       <div className="prediction-section">
         <h2>Predict Future Value</h2>
@@ -77,7 +59,7 @@ function SolanaPrediction() {
         
         {predictedValue && (
           <div className="prediction-result">
-            <h3>Predicted Value for {predictionDate}: <span>${-1*predictedValue.toFixed(2)}</span></h3>
+            <h3>Predicted Value for {predictionDate}: <span>${(-1*predictedValue/10000).toFixed(2)}</span></h3>
           </div>
         )}
       </div>
