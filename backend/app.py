@@ -11,14 +11,35 @@ app = Flask(__name__)
 CORS(app)  # Apply CORS globally for all routes
 
 with open('bitcoin_model.pkl', 'rb') as f:
-    final_model = pickle.load(f)
+    bitcoin_model = pickle.load(f)
+with open('Dogecoin.pkl', 'rb') as fb:
+    Dogecoin_model = pickle.load(fb)
+with open('ethereum_model.pkl', 'rb') as fc:
+    ethereum_model = pickle.load(fc)
+with open('Dogecoin.pkl', 'rb') as fd:
+    solana_model = pickle.load(fd)
+with open('toncoin.pkl', 'rb') as fe:
+    toncoin_model = pickle.load(fe)
+with open('tron.pkl', 'rb') as ff:
+    tron_model = pickle.load(ff)
+with open('bitcoin_model.pkl', 'rb') as fa:
+    bnb_model = pickle.load(fa)
+with open('usdc_model.pkl', 'rb') as fg:
+    usdc_model = pickle.load(fg)
+with open('xrp.pkl', 'rb') as fh:
+    xrp_model = pickle.load(fh)
+with open('tether_model.pkl', 'rb') as fi:
+    tether_model = pickle.load(fi)
+
+
+
 
 bitcoinhistorical_data = pd.read_csv('bitcoin_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
-bnbhistorical_data = pd.read_csv('bnb_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
 Dogecoinhistorical_data = pd.read_csv('Dogecoin_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
 ethereumhistorical_data = pd.read_csv('ethereum_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
-solanahistorical_data = pd.read_csv('solana_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
 tetherhistorical_data = pd.read_csv('tether_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
+bnbhistorical_data = pd.read_csv('bitcoin_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
+solanahistorical_data = pd.read_csv('Dogecoin_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
 toncoinhistorical_data = pd.read_csv('toncoin_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
 tronhistorical_data = pd.read_csv('tron_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
 usdchistorical_data = pd.read_csv('usdc.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
@@ -38,7 +59,7 @@ def predict_bitcoin_price():
 
         last_date = bitcoinhistorical_data.index[-1]
         future_dates = pd.date_range(start=last_date, end=input_date, freq='D')
-        forecast = final_model.forecast(len(future_dates))
+        forecast = bitcoin_model.forecast(len(future_dates))
 
         prediction_data = {
             "predicted_value": forecast[-1],
@@ -63,7 +84,7 @@ def predict_bnb_historical_price():
 
         last_date = bnbhistorical_data.index[-1]
         future_dates = pd.date_range(start=last_date, end=input_date, freq='D')
-        forecast = final_model.forecast(len(future_dates))
+        forecast = bnb_model.forecast(len(future_dates))
 
         prediction_data = {
             "predicted_value": forecast[-1],
@@ -88,7 +109,7 @@ def predict_Dogecoin_price():
 
         last_date = Dogecoinhistorical_data.index[-1]
         future_dates = pd.date_range(start=last_date, end=input_date, freq='D')
-        forecast = final_model.forecast(len(future_dates))
+        forecast = Dogecoin_model.forecast(len(future_dates))
 
         prediction_data = {
             "predicted_value": forecast[-1],
@@ -114,7 +135,7 @@ def predict_ethereum_price():
 
         last_date = ethereumhistorical_data.index[-1]
         future_dates = pd.date_range(start=last_date, end=input_date, freq='D')
-        forecast = final_model.forecast(len(future_dates))
+        forecast = ethereum_model.forecast(len(future_dates))
 
         prediction_data = {
             "predicted_value": forecast[-1],
@@ -139,7 +160,7 @@ def predict_solana_price():
 
         last_date = solanahistorical_data.index[-1]
         future_dates = pd.date_range(start=last_date, end=input_date, freq='D')
-        forecast = final_model.forecast(len(future_dates))
+        forecast = solana_model.forecast(len(future_dates))
 
         prediction_data = {
             "predicted_value": forecast[-1],
@@ -161,10 +182,10 @@ def predict_tether_price():
     try:
         input_date = request.json.get('date')
         logging.debug(f'Received prediction request for date: {input_date}')
-        
+
         last_date = tetherhistorical_data.index[-1]
         future_dates = pd.date_range(start=last_date, end=input_date, freq='D')
-        forecast = final_model.forecast(len(future_dates))
+        forecast = tether_model.forecast(len(future_dates))
 
         prediction_data = {
             "predicted_value": forecast[-1],
@@ -189,7 +210,7 @@ def predict_toncoin_price():
 
         last_date = toncoinhistorical_data.index[-1]
         future_dates = pd.date_range(start=last_date, end=input_date, freq='D')
-        forecast = final_model.forecast(len(future_dates))
+        forecast = toncoin_model.forecast(len(future_dates))
 
         prediction_data = {
             "predicted_value": forecast[-1],
@@ -214,7 +235,7 @@ def predict_tron_price():
 
         last_date = tronhistorical_data.index[-1]
         future_dates = pd.date_range(start=last_date, end=input_date, freq='D')
-        forecast = final_model.forecast(len(future_dates))
+        forecast = tron_model.forecast(len(future_dates))
 
         prediction_data = {
             "predicted_value": forecast[-1],
@@ -236,17 +257,15 @@ def predict_usdc_price():
     try:
         input_date = request.json.get('date')
         logging.debug(f'Received prediction request for date: {input_date}')
-     
+
         last_date = usdchistorical_data.index[-1]
         future_dates = pd.date_range(start=last_date, end=input_date, freq='D')
-        forecast = final_model.forecast(len(future_dates))
+        forecast = usdc_model.forecast(len(future_dates))
 
         prediction_data = {
             "predicted_value": forecast[-1],
             "forecast": forecast.tolist(),
         }
-   
-
         return jsonify(prediction_data)
     except Exception as e:
         logging.error(f'Error during prediction: {e}')
@@ -266,8 +285,8 @@ def predict_xrp_price():
 
         last_date = xrphistorical_data.index[-1]
         future_dates = pd.date_range(start=last_date, end=input_date, freq='D')
-        forecast = final_model.forecast(len(future_dates))
-  
+        forecast = xrp_model.forecast(len(future_dates))
+
         prediction_data = {
             "predicted_value": forecast[-1],
             "forecast": forecast.tolist(),
