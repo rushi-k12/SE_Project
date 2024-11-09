@@ -209,7 +209,7 @@
     overflow-x: auto;
     max-height: 600px;
     border-radius: 20px;
-    border: 2px solid green;
+    border: 2px solid rgb(64, 171, 247);
     scrollbar-width: none;
 
   }
@@ -223,34 +223,34 @@
   }
   
   .crypto-table thead {
-    background-color: #cbeedd;
+    background-color: #cbe2ee;
     position: sticky;
     top: 0;
   }
   
   .crypto-table th, .crypto-table td {
     padding: 15px 10px;
-    border-right: 1px solid green; 
+    border-right: 1px solid rgb(64, 171, 247); 
   }
   
   .crypto-table th {
     font-weight: 600;
     text-transform: uppercase;
-    color: green;
+    color: #2980b9;
   }
    tr {
-    border-bottom: 2px solid green;
+    border-bottom: 2px solid rgb(64, 171, 247);
   }
   th{
-    border-right: 2px solid green;
+    border-right: 2px solid rgb(64, 171, 247);
   }
   
   .crypto-table tbody tr:nth-child(even) {
-    background-color: #cbeedd;
+    background-color: #cbe2ee;
   }
   
   .crypto-table tbody tr:hover {
-    background-color: rgb(169, 230, 169);
+    background-color: rgb(169, 208, 230);
   }
  
   .currency-name {
@@ -291,7 +291,7 @@
   ul {
     display: flex;
     flex-wrap: nowrap;
-    animation: scroll 20s linear infinite;
+    animation: scroll 10s linear infinite;
   }
   
   .mover-item {
@@ -314,7 +314,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-200%);
+      transform: translateX(-80%);
     }
   }
   

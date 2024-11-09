@@ -1,6 +1,6 @@
 /* General container styling */
 .container {
-    max-width: 600px;
+    max-width: 80%;
     margin: 50px auto;
     padding: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -161,4 +161,9 @@
       font-size: 16px;
     }
   }
-</style>
+ .note span{
+  color:red
+ }
+  
+
+  
