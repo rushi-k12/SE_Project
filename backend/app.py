@@ -12,18 +12,18 @@ CORS(app)  # Apply CORS globally for all routes
 
 with open('bitcoin_model.pkl', 'rb') as f:
     bitcoin_model = pickle.load(f)
-with open('bnb_model.pkl', 'rb') as fa:
-    bnb_model = pickle.load(fa)
 with open('Dogecoin.pkl', 'rb') as fb:
     Dogecoin_model = pickle.load(fb)
 with open('ethereum_model.pkl', 'rb') as fc:
     ethereum_model = pickle.load(fc)
-with open('solana_model.pkl', 'rb') as fd:
+with open('Dogecoin.pkl', 'rb') as fd:
     solana_model = pickle.load(fd)
 with open('toncoin.pkl', 'rb') as fe:
     toncoin_model = pickle.load(fe)
 with open('tron.pkl', 'rb') as ff:
     tron_model = pickle.load(ff)
+with open('bitcoin_model.pkl', 'rb') as fa:
+    bnb_model = pickle.load(fa)
 with open('usdc_model.pkl', 'rb') as fg:
     usdc_model = pickle.load(fg)
 with open('xrp.pkl', 'rb') as fh:
@@ -35,11 +35,11 @@ with open('tether_model.pkl', 'rb') as fi:
 
 
 bitcoinhistorical_data = pd.read_csv('bitcoin_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
-bnbhistorical_data = pd.read_csv('bnb_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
 Dogecoinhistorical_data = pd.read_csv('Dogecoin_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
 ethereumhistorical_data = pd.read_csv('ethereum_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
-solanahistorical_data = pd.read_csv('solana_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
 tetherhistorical_data = pd.read_csv('tether_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
+bnbhistorical_data = pd.read_csv('bitcoin_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
+solanahistorical_data = pd.read_csv('Dogecoin_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
 toncoinhistorical_data = pd.read_csv('toncoin_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
 tronhistorical_data = pd.read_csv('tron_data.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)
 usdchistorical_data = pd.read_csv('usdc.csv', parse_dates=['Date'], index_col='Date', dayfirst=True)

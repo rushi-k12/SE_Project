@@ -61,7 +61,7 @@ function DogecoinPrediction() {
         
         {predictedValue && (
           <div className="prediction-result">
-            <h3>Predicted Value for {predictionDate}: <span>${-1*predictedValue.toFixed(2)}</span></h3>
+            <h3>Predicted Value for {predictionDate}: <span>${(predictedValue/100).toFixed(2)}</span></h3>
           </div>
         )}
       </div>

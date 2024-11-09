@@ -60,7 +60,7 @@
           
           {predictedValue && (
             <div className="prediction-result">
-              <h3>Predicted Value for {predictionDate}: <span>${-1*predictedValue.toFixed(2)}</span></h3>
+              <h3>Predicted Value for {predictionDate}: <span>${-1*(predictedValue/10000).toFixed(2)}</span></h3>
             </div>
           )}
         </div>

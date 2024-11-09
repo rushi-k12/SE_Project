@@ -16,13 +16,15 @@ function Apifile() {
       }
     })
       .then(res => {
-        const sortedData = res.data.result.sort((a, b) => b.priceChange1d - a.priceChange1d);  // Sort by 24h change
-        setCurrency(res.data.result);
 
-        // Extract top gainers and losers
+        const data = res.data.result;
+        setCurrency(data);
+        const sortedData = [...data].sort((a, b) => b.priceChange1d - a.priceChange1d);  
         const gainers = sortedData.filter(val => val.priceChange1d > 0).slice(0, 5);
         const losers = sortedData.filter(val => val.priceChange1d < 0).slice(0, 5);
         setTopMovers({ gainers, losers });
+       
+      
       })
       .catch(err => console.log(err));
   }, []);
@@ -60,7 +62,7 @@ function Apifile() {
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        {/* Top Movers Section */}
+    
         <div className="top-movers">
           <div className="mover gainers">
             <h2>Top Gainers</h2>
@@ -95,9 +97,10 @@ function Apifile() {
 
         {/* Currency Table */}
         <div className="table-wrapper">
+         
           <table className="crypto-table">
             <thead>
-              <tr >
+              <tr>
                 <th>Rank</th>
                 <th>Name</th>
                 <th>Symbol</th>
