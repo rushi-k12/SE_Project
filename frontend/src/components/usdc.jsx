@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/bitprediction.css'; 
 
-function ToncoinPrediction() {
+function UsdcPrediction() {
   
   const [historicalData, setHistoricalData] = useState([]);
   const [predictionDate, setPredictionDate] = useState('');
@@ -11,7 +11,7 @@ function ToncoinPrediction() {
 
   
   useEffect(() => {
-    axios.get('http://127.0.0.1:5000/api/toncoin/historical')
+    axios.get('https://se-project-backend-jfga.onrender.com/api/usdc/historical')
       .then(response => {
         if (Array.isArray(response.data)) {
           setHistoricalData(response.data);
@@ -30,7 +30,7 @@ function ToncoinPrediction() {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/toncoin/predict', { date: predictionDate });
+      const response = await axios.post('https://se-project-backend-jfga.onrender.com/api/usdc/predict', { date: predictionDate });
       
       setPredictedValue(response.data.predicted_value);
       setForecast(response.data.forecast);
@@ -44,8 +44,7 @@ function ToncoinPrediction() {
   return (
     <div className='bit-container'>
     <div className="container">
-      <h1>Ton coin Price Prediction</h1>
-
+      <h1>USDC Price Prediction</h1>
 
       {/* Prediction */}
       <div className="prediction-section">
@@ -61,7 +60,7 @@ function ToncoinPrediction() {
         
         {predictedValue && (
           <div className="prediction-result">
-            <h3>Predicted Value for {predictionDate}: <span>${-1*(predictedValue/100).toFixed(2)}</span></h3>
+            <h3>Predicted Value for {predictionDate}: <span>${predictedValue.toFixed(2)}</span></h3>
           </div>
         )}
       </div>
@@ -70,4 +69,4 @@ function ToncoinPrediction() {
   );
 }
 
-export default ToncoinPrediction;
+export default UsdcPrediction;

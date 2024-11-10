@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/bitprediction.css'; 
 
-function EthereumPrediction() {
+function XRPPrediction() {
   
   const [historicalData, setHistoricalData] = useState([]);
   const [predictionDate, setPredictionDate] = useState('');
@@ -11,7 +11,7 @@ function EthereumPrediction() {
 
   
   useEffect(() => {
-    axios.get('http://127.0.0.1:5000/api/ethereum/historical')
+    axios.get('https://se-project-backend-jfga.onrender.com/api/xrp/historical')
       .then(response => {
         if (Array.isArray(response.data)) {
           setHistoricalData(response.data);
@@ -30,7 +30,7 @@ function EthereumPrediction() {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/ethereum/predict', { date: predictionDate });
+      const response = await axios.post('https://se-project-backend-jfga.onrender.com/api/xrp/predict', { date: predictionDate });
       
       setPredictedValue(response.data.predicted_value);
       setForecast(response.data.forecast);
@@ -44,8 +44,9 @@ function EthereumPrediction() {
   return (
     <div className='bit-container'>
     <div className="container">
-      <h1>Ethereum Price Prediction</h1>
-  
+      <h1>XRP Price Prediction</h1> 
+
+      {/* Prediction */}
       <div className="prediction-section">
         <h2>Predict Future Value</h2>
         <input
@@ -59,7 +60,7 @@ function EthereumPrediction() {
         
         {predictedValue && (
           <div className="prediction-result">
-            <h3>Predicted Value for {predictionDate}: <span>${-1*(predictedValue/100).toFixed(2)}</span></h3>
+            <h3>Predicted Value for {predictionDate}: <span>${(predictedValue/100).toFixed(2)}</span></h3>
           </div>
         )}
       </div>
@@ -68,4 +69,4 @@ function EthereumPrediction() {
   );
 }
 
-export default EthereumPrediction;
+export default XRPPrediction;

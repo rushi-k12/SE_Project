@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cookieParser());
 mongoose.connect(process.env.URI).then(()=>{
     console.log("database connected succesfully");
-    app.listen(3000,(req,res)=>{
+    app.listen(process.env.PORT ||3000,(req,res)=>{
     console.log("server is running on port 3000");})
 }).catch((error)=>{
     console.error("Database connection failed:", error.message);

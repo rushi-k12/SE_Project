@@ -1,6 +1,7 @@
 
 import './App.css';
 import Apifile from './components/Apifile';
+import { AuthProvider } from './context/Authcontext.jsx';
 import Bitprediction from './components/bitprediction';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Register from './components/Register.jsx'
@@ -19,6 +20,7 @@ import About from './components/about.jsx'
 function App() {
 
   return (
+    <AuthProvider>
     <BrowserRouter>
     <Routes>
       
@@ -38,6 +40,7 @@ function App() {
       <Route path='/predict/xrp' element={<XRPPrediction/>}/>
     </Routes>
     </BrowserRouter>
+    </AuthProvider>
   )
 }
 

@@ -3,7 +3,7 @@ import axios from 'axios';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
 import '../styles/Apifile.css';
-import Footer from '../components/footer.jsx';
+import Footer from './footer.jsx';
 import '../styles/footer.css';
 import { useSelector,useDispatch } from 'react-redux';
 import { signInFailure, signOutstart, signOutsuccess } from '../redux/user/userslice.js';
@@ -27,8 +27,7 @@ const dispatch=useDispatch();
         const gainers = sortedData.filter(val => val.priceChange1d > 0).slice(0, 5);
         const losers = sortedData.filter(val => val.priceChange1d < 0).slice(0, 5);
         setTopMovers({ gainers, losers });
-     
-      
+        
       })
       .catch(err => console.log(err));
   }, []);
@@ -170,3 +169,6 @@ dispatch(signOutsuccess(data));
 }
 
 export default Apifile;
+
+
+

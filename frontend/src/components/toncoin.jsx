@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/bitprediction.css'; 
 
-function TetherPrediction() {
+function ToncoinPrediction() {
   
   const [historicalData, setHistoricalData] = useState([]);
   const [predictionDate, setPredictionDate] = useState('');
@@ -11,7 +11,7 @@ function TetherPrediction() {
 
   
   useEffect(() => {
-    axios.get('http://127.0.0.1:5000/api/tether/historical')
+    axios.get('https://se-project-backend-jfga.onrender.com/api/toncoin/historical')
       .then(response => {
         if (Array.isArray(response.data)) {
           setHistoricalData(response.data);
@@ -30,7 +30,7 @@ function TetherPrediction() {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/tether/predict', { date: predictionDate });
+      const response = await axios.post('https://se-project-backend-jfga.onrender.com/api/toncoin/predict', { date: predictionDate });
       
       setPredictedValue(response.data.predicted_value);
       setForecast(response.data.forecast);
@@ -44,7 +44,7 @@ function TetherPrediction() {
   return (
     <div className='bit-container'>
     <div className="container">
-      <h1>Tether Price Prediction</h1>
+      <h1>Ton coin Price Prediction</h1>
 
 
       {/* Prediction */}
@@ -61,7 +61,7 @@ function TetherPrediction() {
         
         {predictedValue && (
           <div className="prediction-result">
-            <h3>Predicted Value for {predictionDate}: <span>${predictedValue.toFixed(2)}</span></h3>
+            <h3>Predicted Value for {predictionDate}: <span>${-1*(predictedValue/100).toFixed(2)}</span></h3>
           </div>
         )}
       </div>
@@ -70,4 +70,4 @@ function TetherPrediction() {
   );
 }
 
-export default TetherPrediction;
+export default ToncoinPrediction;
