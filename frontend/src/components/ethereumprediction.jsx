@@ -69,3 +69,12 @@ function EthereumPrediction() {
 }
 
 export default EthereumPrediction;
+
+
+
+
+
+
+
+
+

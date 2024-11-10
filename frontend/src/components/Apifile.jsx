@@ -3,7 +3,7 @@ import axios from 'axios';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
 import '../styles/Apifile.css';
-import Footer from '../components/footer.jsx';
+import Footer from './footer.jsx';
 import '../styles/footer.css';
 
 function Apifile() {
@@ -24,8 +24,7 @@ function Apifile() {
         const gainers = sortedData.filter(val => val.priceChange1d > 0).slice(0, 5);
         const losers = sortedData.filter(val => val.priceChange1d < 0).slice(0, 5);
         setTopMovers({ gainers, losers });
-     
-      
+        
       })
       .catch(err => console.log(err));
   }, []);
@@ -146,3 +145,6 @@ function Apifile() {
 }
 
 export default Apifile;
+
+
+

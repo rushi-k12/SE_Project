@@ -8,7 +8,7 @@ function footer() {
         <div className="footer-section">
           <h2 className="footer-logo">Your Website Name</h2>
           <p className="footer-description">
-            Your website’s tagline or a brief description goes here. Describe your mission, vision, or values to connect with your visitors.
+            Your website's tagline or a brief description goes here. Describe your mission, vision, or values to connect with your visitors.
           </p>
         </div>
         
