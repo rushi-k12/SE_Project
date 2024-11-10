@@ -47,7 +47,7 @@ const dispatch=useDispatch();
   const handleSignout=async()=>{
 try{
   dispatch(signOutstart());
-const res=await fetch('/api/auth/signout');
+const res=await fetch('https://se-project-pgdo.onrender.com/api/auth/signout');
 const data=await res.json();
 if(!res.ok){
   dispatch(signInFailure(data.message))
