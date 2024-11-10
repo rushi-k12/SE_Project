@@ -8,7 +8,9 @@ export default defineConfig({
     proxy:{
       '/api':{
        target: "https://se-project-backend-jfga.onrender.com",
+         changeOrigin: true, 
        secure:false,
+         rewrite: (path) => path.replace(/^\/api/, ''),
       
     }}
   },
