@@ -41,8 +41,10 @@ function BitPrediction() {
   };
 
   return (
+    
+      <div className='bit-container'>
     <div className="container ">
-      <div className='box'>
+      
       <h1>Bitcoin Price Prediction</h1>
 
       {/* Historical Data */}
@@ -78,6 +80,7 @@ function BitPrediction() {
         )}
       </div>
       </div>
+      
     </div>
   );
 }

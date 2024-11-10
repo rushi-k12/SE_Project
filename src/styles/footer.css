@@ -1,7 +1,7 @@
 /* Footer.css */
 .footer {
-    background: rgb(99, 172, 228);
-  color: black;
+    background: rgb(13, 138, 234);
+  color: white;
   padding: 40px 0;
 }
 
@@ -19,6 +19,10 @@
   flex: 1;
   min-width: 200px;
   margin-bottom: 20px;
+  
+}
+.footer-section h2{
+    color:white;
 }
 
 .footer-logo {
@@ -54,7 +58,7 @@
 }
 
 .footer-social {
-  color: black;
+  color: white;
   text-decoration: none;
   font-size: 14px;
 }
