@@ -5,12 +5,15 @@ import { Link } from 'react-router-dom';
 import '../styles/Apifile.css';
 import Footer from './footer.jsx';
 import '../styles/footer.css';
+import { useSelector,useDispatch } from 'react-redux';
+import { signInFailure, signOutstart, signOutsuccess } from '../redux/user/userslice.js';
 
 function Apifile() {
+  const { currentUser } = useSelector((state) => state.user);
   const [search, setSearch] = useState("");
   const [currency, setCurrency] = useState([]);
   const [topMovers, setTopMovers] = useState({ gainers: [], losers: [] });
-
+const dispatch=useDispatch();
   useEffect(() => {
     axios.get('https://openapiv1.coinstats.app/coins', {
       headers: {
@@ -40,21 +43,37 @@ function Apifile() {
     val.name.toLowerCase().includes(search.toLowerCase()) &&
     desiredSymbols.includes(val.symbol.toLowerCase())
   );
+  const handleSignout=async()=>{
+try{
+  dispatch(signOutstart());
+const res=await fetch('/api/auth/signout');
+const data=await res.json();
+if(!res.ok){
+  dispatch(signInFailure(data.message))
+  return;
+}
+dispatch(signOutsuccess(data));
+}catch(error){
+  dispatch(signInFailure(error.message))
+}
+  }
 
   return (
     <div className='apifile'>
       <Nav className="nav" activeKey="/home">
+      <div className='logo-name'>
+        <p href='/home'className='c-name'>PriceProphet</p>
+      </div>
         <div className="navbar-left">
           <Nav.Item>
-            <Nav.Link href="/home" className="n">Home</Nav.Link>
+            <Nav.Link href="/" className="n">Home</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-1" className="n">About</Nav.Link>
+            <Nav.Link as={Link} to='/about'eventKey="link-1" className="n">About</Nav.Link>
           </Nav.Item>
-        </div>
-        <div className="navbar-right login-signup">
+        
           <Nav.Item>
-            <Nav.Link as={Link} to="/register" eventKey="link-3">Login</Nav.Link>
+         {currentUser? <Nav.Link as={Link} onClick={handleSignout} eventKey="link-3">Logout</Nav.Link>:<Nav.Link as={Link} to="/register" eventKey="link-3">Login</Nav.Link>}
           </Nav.Item>
         </div>
       </Nav>
@@ -123,10 +142,15 @@ function Apifile() {
                 <tr key={val._id}>
                   <td>{val.rank}</td>
                   <td className="currency-name">
+                    {currentUser?
                     <Link to={`/predict/${val.symbol.toLowerCase()}`}>
                       <img src={val.icon} alt={val.name} className="currency-icon" />
                       {val.name}
+                    </Link>:<Link to={'/register'}>
+                      <img src={val.icon} alt={val.name} className="currency-icon" />
+                      {val.name}
                     </Link>
+                     }
                   </td>
                   <td>{val.symbol}</td>
                   <td>${val.marketCap.toLocaleString()}</td>

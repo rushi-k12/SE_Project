@@ -80,6 +80,8 @@
   
   .l-buttons button:hover span {
     background: none;
+    text-decoration: none;
+    outline-offset: none;
   }
   
   .l-buttons button:active {
@@ -87,9 +89,25 @@
   }
   @keyframes float{
     0%,100%{
-        transform: translateY(-8px);
+        transform: translateY(-14px);
     }
     50%{
-        transform: translateY(8px);
+        transform: translateY(14px);
     }
+  }
+  @media (max-width:609px){
+    .l-content h1 {
+      font-size: 2em;
+  }
+  }
+  @media (max-width:438px){
+    .l-buttons {
+      width: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+  }
+  .btns{
+    width: 300px;
+  }
   }

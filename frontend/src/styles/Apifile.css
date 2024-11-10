@@ -9,8 +9,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0px 0px 100px gray;
   }
-  
+  .logo-name{
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .c-name{
+    font-weight: 600;
+    font-size: x-large;
+    color: #2980b9;
+  }
   .navbar-left {
     display: flex;
     align-items: center;
@@ -19,21 +30,19 @@
   .nav-link {
 
     text-decoration: none;
-    color: #828080;
+    color: black;
     padding: 10px 15px;
     border-radius: 4px;
     transition: background-color 0.3s, color 0.3s;
   }
   
   .nav-link:hover {
-    background-color: #495057;
+    background-color: rgb(5, 159, 248);
     color: #ffffff;
   }
   
   .nav-item {
     margin: 0 10px;
-
-    
   }
 
   
@@ -74,6 +83,9 @@
     border-radius: 10px;
     background-color: #f4f4f9;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .crypto-container h1{
+    color: #2980b9;
   }
   
   .heading {
@@ -212,7 +224,6 @@
     border-radius: 20px;
     border: 2px solid rgb(64, 171, 247);
     scrollbar-width: none;
-
   }
   
   .crypto-table {
@@ -240,6 +251,9 @@
     font-weight: 600;
     text-transform: uppercase;
     color: #2980b9;
+  }
+  .currency-name img{
+    margin-right: 8px;
   }
    tr {
     border-bottom: 2px solid rgb(64, 171, 247);
@@ -306,10 +320,7 @@
       text-align: left;
       color: #333;
     }
-
-
   }
-  
   .top-movers {
     display: flex;
     justify-content: space-between;
@@ -326,7 +337,6 @@ ul {
     display: flex;
     flex-wrap: nowrap;
     animation: scroll 14s linear infinite;
- 
 }
 
 .mover-item {
@@ -353,10 +363,18 @@ ul {
    
   
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-80%);
     }
 }
 
 
-
+@media (max-width:600px){
+  .search input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+}
 
