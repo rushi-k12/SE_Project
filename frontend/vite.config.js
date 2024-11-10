@@ -7,7 +7,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/api':{
-       target: "http://localhost:3000",
+       target: "https://se-project-backend-jfga.onrender.com",
         
        secure:false,
         
