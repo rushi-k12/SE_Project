@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 import "../styles/Register.css"
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { signInStart ,signInFailure,signInSuccess} from '../redux/user/userslice.js';
 
 export default function Register() {
-  const[isLogin, setIsLogin]= useState(true);
+  const[isLogin, setIsLogin]= useState(false);
   const [signinData,setInData]=useState({});
   const[iferror,setIferror]=useState(false);
-  const[errmsg,setError]=useState("");
+  const {loading,error}=useSelector((state)=>state.user);
+  const [err,setError]=useState('');
   const[signupData,setSignuP]=useState({});
-
+const dispatch=useDispatch();
   const navigate=useNavigate();
 
   const signinhandle=(e)=>{
@@ -22,6 +25,7 @@ export default function Register() {
 }
 const submitInhandle=async(e)=>{
   e.preventDefault();
+  dispatch(signInStart());
   const response=await fetch('/api/auth/signin',{
       method:'POST',
       headers:{
@@ -35,6 +39,7 @@ const submitInhandle=async(e)=>{
   
   
   if(response.ok){
+    dispatch(signInSuccess(result))
       console.log(result);
       navigate('/home')
       
@@ -42,7 +47,7 @@ const submitInhandle=async(e)=>{
       if(!response.ok){
           setIferror(true);
          console.log("error is::",result.message);
-         setError(result.message);
+         dispatch(signInFailure(result.message))
          setTimeout(() => {
           setIferror(false);
          }, 3000);
@@ -134,7 +139,7 @@ const handleSignUpsubmit = async (e) => {
         </form>
         </>}
         <div style={{color:"red"}}>
-            {iferror?<p>{errmsg}</p>:null}
+            {iferror?<p>{error||err}</p>:null}
            </div>
       </div>
       <div className={isLogin?'login-img img-left ':'login-img img-right'}>

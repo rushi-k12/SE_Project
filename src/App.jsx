@@ -14,6 +14,7 @@ import TronPrediction from './components/tron';
 import UsdcPrediction from './components/usdc';
 import XRPPrediction from './components/xrp';
 import Landingpage from './components/landingpage.jsx'
+import About from './components/about.jsx'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       
       <Route path='/' element={<Landingpage/>}/>
       <Route path='/home' element={<Apifile/>}/>
+      <Route path='/about'element={<About/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/predict/btc' element={<Bitprediction/>}/>
       <Route path='/predict/bnb' element={<BnbPrediction/>}/>
