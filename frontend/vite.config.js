@@ -7,7 +7,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/api':{
-       target: "https://se-project-backend-jfga.onrender.com",
+       target: "https://se-project-pgdo.onrender.com",
         
        secure:false,
         
