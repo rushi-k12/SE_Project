@@ -3,7 +3,7 @@ import axios from 'axios';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
 import '../styles/Apifile.css';
-import Footer from '../components/footer.jsx';
+import Footer from './footer.jsx';
 import '../styles/footer.css';
 
 function Apifile() {
