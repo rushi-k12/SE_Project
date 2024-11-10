@@ -72,7 +72,7 @@ const handleSignUpsubmit = async (e) => {
       const response = await fetch('https://se-project-pgdo.onrender.com/api/auth/signup', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(signupData),
       });
