@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/bitprediction.css'; 
 
-function TronPrediction() {
+function XRPPrediction() {
   
   const [historicalData, setHistoricalData] = useState([]);
   const [predictionDate, setPredictionDate] = useState('');
@@ -11,7 +11,7 @@ function TronPrediction() {
 
   
   useEffect(() => {
-    axios.get('http://127.0.0.1:5000/api/tron/historical')
+    axios.get('http://127.0.0.1:5000/api/xrp/historical')
       .then(response => {
         if (Array.isArray(response.data)) {
           setHistoricalData(response.data);
@@ -30,7 +30,7 @@ function TronPrediction() {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/tron/predict', { date: predictionDate });
+      const response = await axios.post('http://127.0.0.1:5000/api/xrp/predict', { date: predictionDate });
       
       setPredictedValue(response.data.predicted_value);
       setForecast(response.data.forecast);
@@ -42,9 +42,9 @@ function TronPrediction() {
   };
 
   return (
+    <div className='bit-container'>
     <div className="container">
-      <h1>TRON Price Prediction</h1>
-
+      <h1>XRP Price Prediction</h1> 
 
       {/* Prediction */}
       <div className="prediction-section">
@@ -60,12 +60,13 @@ function TronPrediction() {
         
         {predictedValue && (
           <div className="prediction-result">
-            <h3>Predicted Value for {predictionDate}: <span>${-1*(predictedValue/100).toFixed(2)}</span></h3>
+            <h3>Predicted Value for {predictionDate}: <span>${(predictedValue/100).toFixed(2)}</span></h3>
           </div>
         )}
+      </div>
       </div>
     </div>
   );
 }
 
-export default TronPrediction;
+export default XRPPrediction;

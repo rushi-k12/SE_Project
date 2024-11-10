@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../styles/bitprediction.css'; // Import the CSS file for styling
+import '../styles/bitprediction.css'; 
 
-function BitPrediction() {
+function TetherPrediction() {
   
   const [historicalData, setHistoricalData] = useState([]);
   const [predictionDate, setPredictionDate] = useState('');
   const [predictedValue, setPredictedValue] = useState(null);
   const [forecast, setForecast] = useState([]);
 
-  // Fetch historical data (assuming your Flask backend is running on http://127.0.0.1:5000)
+  
   useEffect(() => {
-    axios.get('http://127.0.0.1:5000/api/bitcoin/historical')
+    axios.get('http://127.0.0.1:5000/api/tether/historical')
       .then(response => {
         if (Array.isArray(response.data)) {
           setHistoricalData(response.data);
@@ -22,7 +22,7 @@ function BitPrediction() {
       .catch(error => console.error('Error fetching historical data:', error));
   }, []);
 
-  // Handle prediction request
+
   const handlePredict = async () => {
     if (!predictionDate) {
       alert('Please enter a prediction date!');
@@ -30,38 +30,22 @@ function BitPrediction() {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/bitcoin/predict', { date: predictionDate });
+      const response = await axios.post('http://127.0.0.1:5000/api/tether/predict', { date: predictionDate });
+      
       setPredictedValue(response.data.predicted_value);
       setForecast(response.data.forecast);
      
     } catch (error) {
       console.error('Error predicting price:', error);
-      // Optionally display an error message to the user
+
     }
   };
 
   return (
+    <div className='bit-container'>
     <div className="container">
-      <h1>Bitcoin Price Prediction</h1>
+      <h1>Tether Price Prediction</h1>
 
-      {/* Historical Data */}
-      <h2>Historical Data</h2>
-      <table className="historical-table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Array.isArray(historicalData) && historicalData.length > 0 && historicalData.map((data, index) => (
-            <tr key={index}>
-              <td>{data.Date}</td>
-              <td>{data.Price}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
 
       {/* Prediction */}
       <div className="prediction-section">
@@ -72,16 +56,18 @@ function BitPrediction() {
           value={predictionDate}
           onChange={(e) => setPredictionDate(e.target.value)}
         />
+        
         <button className="predict-button" onClick={handlePredict}>Predict</button>
-       
+        
         {predictedValue && (
           <div className="prediction-result">
-            <h3>Predicted Value for {predictionDate}: <span>${-1*(predictedValue/100).toFixed(2)}</span></h3>
+            <h3>Predicted Value for {predictionDate}: <span>${predictedValue.toFixed(2)}</span></h3>
           </div>
         )}
+      </div>
       </div>
     </div>
   );
 }
 
-export default BitPrediction;
+export default TetherPrediction;

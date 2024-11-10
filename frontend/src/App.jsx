@@ -1,6 +1,7 @@
 
 import './App.css';
 import Apifile from './components/Apifile';
+import { AuthProvider } from './context/Authcontext.jsx';
 import Bitprediction from './components/bitprediction';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Register from './components/Register.jsx'
@@ -13,13 +14,17 @@ import ToncoinPrediction from './components/toncoin';
 import TronPrediction from './components/tron';
 import UsdcPrediction from './components/usdc';
 import XRPPrediction from './components/xrp';
+import Landingpage from './components/landingpage.jsx'
 
 function App() {
 
   return (
+    <AuthProvider>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Apifile/>}/>
+      
+      <Route path='/' element={<Landingpage/>}/>
+      <Route path='/home' element={<Apifile/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/predict/btc' element={<Bitprediction/>}/>
       <Route path='/predict/bnb' element={<BnbPrediction/>}/>
@@ -33,6 +38,7 @@ function App() {
       <Route path='/predict/xrp' element={<XRPPrediction/>}/>
     </Routes>
     </BrowserRouter>
+    </AuthProvider>
   )
 }
 

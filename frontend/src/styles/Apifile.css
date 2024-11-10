@@ -83,16 +83,72 @@
     font-size: 2rem;
     font-family: 'Poppins', sans-serif;
   }
+
+  /* search */
+.search-out{
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search {
+  display: inline-block;
+  position: relative;
+}
+
+.search input[type="text"] {
+  width: 600px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search button[type="submit"] {
+  background-color: #4e99e9;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: .9s ease;
+}
+
+.search button[type="submit"]:hover {
+  transform: scale(1.1);
+  color: rgb(255, 255, 255);
+  background-color: blue;
+}
+
+  /* search2 */
+  /* .search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 1px solid #ccc;
+    padding: ;
+  }
+  .search input{
+    border: none;
+  }
+  .search input:focus{
+    outline: none;
+  }
   
   .search-bar {
     display: block;
-    width: 100%;
-    padding: 10px 20px;
+    width: auto;
+    
     margin-bottom: 20px;
     font-size: 1rem;
-    border: 1px solid #ccc;
     border-radius: 5px;
-  }
+  } */
   
 
   .top-movers {
@@ -153,6 +209,10 @@
   .table-wrapper {
     overflow-x: auto;
     max-height: 600px;
+    border-radius: 20px;
+    border: 2px solid rgb(64, 171, 247);
+    scrollbar-width: none;
+
   }
   
   .crypto-table {
@@ -165,7 +225,7 @@
   }
   
   .crypto-table thead {
-    background-color: #e0e0e0;
+    background-color: #cbe2ee;
     align-items: center;
     position: sticky;
     top: 0;
@@ -173,21 +233,29 @@
   
   .crypto-table th, .crypto-table td {
     padding: 15px 10px;
+    border-right: 1px solid rgb(64, 171, 247); 
   }
   
   .crypto-table th {
     font-weight: 600;
     text-transform: uppercase;
+    color: #2980b9;
+  }
+   tr {
+    border-bottom: 2px solid rgb(64, 171, 247);
+  }
+  th{
+    border-right: 2px solid rgb(64, 171, 247);
   }
   
   .crypto-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #cbe2ee;
   }
   
   .crypto-table tbody tr:hover {
-    background-color: #f1f1f1;
+    background-color: rgb(169, 208, 230);
   }
-  
+ 
   .currency-name {
     display: flex;
     align-items: center;
@@ -200,10 +268,6 @@
     height: 35px;
     border-radius: 50%;
     object-fit: cover;
-  }
-  
-  .crypto-table td {
-    border-bottom: 1px solid #ddd;
   }
   
   .crypto-table td, .crypto-table th {
@@ -261,7 +325,7 @@
 ul {
     display: flex;
     flex-wrap: nowrap;
-    animation: scroll 5s linear infinite;
+    animation: scroll 14s linear infinite;
  
 }
 

@@ -10,7 +10,7 @@ const landingpage = () => {
         <p>Unlock insights into cryptocurrency trends with real-time predictions. Get ahead in the market by understanding the future value of your favorite digital assets.</p>
         <div className='l-buttons'>
 <Link to="/home"><button>
-  <span class="text">Login as Guest</span>
+  <span class="text">Continue as Guest</span>
 </button></Link>
 <Link to="/register"><button>
   <span class="text">Login as User</span>

@@ -121,3 +121,49 @@ body {
   .img-left{
     transform: translateX(-100%);
   }
+@media (max-width:1064px){
+  .login-img {
+    width: 50%;
+    height: 100%;
+    transition: transform 0.8s ease;
+    display: flex;
+    align-items: center;
+    display: none;
+}
+.out-container {
+  width: 70%;
+  height: 80vh;
+  border-radius: 40px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.move-left,.move-right,.img-left,.img-right{
+  transform: none;
+}
+.form-container {
+  background-color: white;
+  padding: 20px 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  height: 98%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  transition: transform 0.5s ease;
+}
+.form-container {
+  background-color: white;
+  padding: 20px 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  height: 98%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  transition: transform 0.5s ease;
+}
+}

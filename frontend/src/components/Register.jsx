@@ -36,7 +36,7 @@ const submitInhandle=async(e)=>{
   
   if(response.ok){
       console.log(result);
-      navigate('/')
+      navigate('/home')
       
       }
       if(!response.ok){
