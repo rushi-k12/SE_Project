@@ -11,7 +11,7 @@ function UsdcPrediction() {
 
   
   useEffect(() => {
-    axios.get('http://127.0.0.1:5000/api/usdc/historical')
+    axios.get('https://se-project-backend-jfga.onrender.com/api/usdc/historical')
       .then(response => {
         if (Array.isArray(response.data)) {
           setHistoricalData(response.data);
@@ -30,7 +30,7 @@ function UsdcPrediction() {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/usdc/predict', { date: predictionDate });
+      const response = await axios.post('https://se-project-backend-jfga.onrender.com/api/usdc/predict', { date: predictionDate });
       
       setPredictedValue(response.data.predicted_value);
       setForecast(response.data.forecast);
