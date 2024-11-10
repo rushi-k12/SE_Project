@@ -50,17 +50,7 @@ function BitPrediction() {
       {/* Historical Data */}
       <p className='note'><span>Note:</span>This prediction is based on previous years data</p>
       
-      <table className="historical-table">
-        
-        <tbody>
-          {Array.isArray(historicalData) && historicalData.length > 0 && historicalData.map((data, index) => (
-            <tr key={index}>
-              <td>{data.Date}</td>
-              <td>{data.Price}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+     
 
       {/* Prediction */}
       <div className="prediction-section">

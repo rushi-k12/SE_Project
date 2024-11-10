@@ -42,6 +42,7 @@ function TronPrediction() {
   };
 
   return (
+    <div className='bit-container'>
     <div className="container">
       <h1>TRON Price Prediction</h1>
 
@@ -63,6 +64,7 @@ function TronPrediction() {
             <h3>Predicted Value for {predictionDate}: <span>${-1*(predictedValue/100).toFixed(2)}</span></h3>
           </div>
         )}
+      </div>
       </div>
     </div>
   );
