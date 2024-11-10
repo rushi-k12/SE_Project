@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "../styles/Register.css"
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { signInStart ,signInFailure,signInSuccess} from '../redux/user/userslice.js';
+import { signInStart ,signInFailure,signInSuccess} from '../source/redux/user/userslice.js';
 
 export default function Register() {
   const[isLogin, setIsLogin]= useState(false);

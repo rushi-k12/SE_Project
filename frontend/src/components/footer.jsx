@@ -8,11 +8,7 @@ function footer() {
         <div className="footer-section">
           <h2 className="footer-logo">PriceProphet</h2>
           <p className="footer-description">
-<<<<<<< HEAD:src/components/footer.jsx
           Welcome to PriceProphet, your trusted source for cryptocurrency value predictions! Our mission is to empower crypto enthusiasts, investors, and traders by providing reliable insights and projections on the future value of various digital assets.
-=======
-            Your website's tagline or a brief description goes here. Describe your mission, vision, or values to connect with your visitors.
->>>>>>> cb0a77cc436d8091fa14cf5baeea71d4ff4d93c9:frontend/src/components/footer.jsx
           </p>
         </div>
         
