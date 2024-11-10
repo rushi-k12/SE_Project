@@ -11,7 +11,7 @@ function TetherPrediction() {
 
   
   useEffect(() => {
-    axios.get('https://se-project-backend-jfga.onrender.com/api/tether/historical')
+    axios.get('https://se-project-1-i0i9.onrender.comapi/tether/historical')
       .then(response => {
         if (Array.isArray(response.data)) {
           setHistoricalData(response.data);
@@ -30,7 +30,7 @@ function TetherPrediction() {
     }
 
     try {
-      const response = await axios.post('https://se-project-backend-jfga.onrender.com/api/tether/predict', { date: predictionDate });
+      const response = await axios.post('https://se-project-1-i0i9.onrender.comapi/tether/predict', { date: predictionDate });
       
       setPredictedValue(response.data.predicted_value);
       setForecast(response.data.forecast);

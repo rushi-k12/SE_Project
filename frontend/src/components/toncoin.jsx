@@ -11,7 +11,7 @@ function ToncoinPrediction() {
 
   
   useEffect(() => {
-    axios.get('https://se-project-backend-jfga.onrender.com/api/toncoin/historical')
+    axios.get('https://se-project-1-i0i9.onrender.comapi/toncoin/historical')
       .then(response => {
         if (Array.isArray(response.data)) {
           setHistoricalData(response.data);
@@ -30,7 +30,7 @@ function ToncoinPrediction() {
     }
 
     try {
-      const response = await axios.post('https://se-project-backend-jfga.onrender.com/api/toncoin/predict', { date: predictionDate });
+      const response = await axios.post('https://se-project-1-i0i9.onrender.com/api/toncoin/predict', { date: predictionDate });
       
       setPredictedValue(response.data.predicted_value);
       setForecast(response.data.forecast);

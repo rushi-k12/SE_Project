@@ -1,6 +1,6 @@
 Flask
 flask-cors
-pickle
+gunicorn
 statsmodels
 pandas
 logging
