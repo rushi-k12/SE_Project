@@ -11,7 +11,7 @@ function TronPrediction() {
 
   
   useEffect(() => {
-    axios.get('http://127.0.0.1:5000/api/tron/historical')
+    axios.get('https://se-project-backend-jfga.onrender.com/api/tron/historical')
       .then(response => {
         if (Array.isArray(response.data)) {
           setHistoricalData(response.data);
@@ -30,7 +30,7 @@ function TronPrediction() {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/tron/predict', { date: predictionDate });
+      const response = await axios.post('https://se-project-backend-jfga.onrender.com/api/tron/predict', { date: predictionDate });
       
       setPredictedValue(response.data.predicted_value);
       setForecast(response.data.forecast);
