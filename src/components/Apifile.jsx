@@ -16,15 +16,13 @@ function Apifile() {
       }
     })
       .then(res => {
-
         const data = res.data.result;
         setCurrency(data);
         const sortedData = [...data].sort((a, b) => b.priceChange1d - a.priceChange1d);  
         const gainers = sortedData.filter(val => val.priceChange1d > 0).slice(0, 5);
         const losers = sortedData.filter(val => val.priceChange1d < 0).slice(0, 5);
         setTopMovers({ gainers, losers });
-     
-      
+        
       })
       .catch(err => console.log(err));
   }, []);
