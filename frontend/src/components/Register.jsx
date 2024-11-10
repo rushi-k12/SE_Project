@@ -26,7 +26,7 @@ const dispatch=useDispatch();
 const submitInhandle=async(e)=>{
   e.preventDefault();
   dispatch(signInStart());
-  const response=await fetch('/api/auth/signin',{
+  const response=await fetch('https://se-project-pgdo.onrender.com/api/auth/signin',{
       method:'POST',
       headers:{
           'Content-Type':'application/json'
@@ -69,7 +69,7 @@ const handleSignUpsubmit = async (e) => {
   if (signupData.comformpassword === signupData.password) {
     try {
       // Proceed with the API request if passwords match
-      const response = await fetch('/api/auth/signup', {
+      const response = await fetch('https://se-project-pgdo.onrender.com/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
