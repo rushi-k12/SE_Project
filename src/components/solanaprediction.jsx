@@ -42,6 +42,7 @@ function SolanaPrediction() {
   };
 
   return (
+    <div className='bit-container'>
     <div className="container">
       <h1>Solana Price Prediction</h1>
 
@@ -62,6 +63,7 @@ function SolanaPrediction() {
             <h3>Predicted Value for {predictionDate}: <span>${(predictedValue*10).toFixed(2)}</span></h3>
           </div>
         )}
+      </div>
       </div>
     </div>
   );

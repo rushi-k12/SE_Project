@@ -42,6 +42,7 @@ function XRPPrediction() {
   };
 
   return (
+    <div className='bit-container'>
     <div className="container">
       <h1>XRP Price Prediction</h1> 
 
@@ -62,6 +63,7 @@ function XRPPrediction() {
             <h3>Predicted Value for {predictionDate}: <span>${(predictedValue/100).toFixed(2)}</span></h3>
           </div>
         )}
+      </div>
       </div>
     </div>
   );

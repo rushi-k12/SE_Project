@@ -3,6 +3,8 @@ import axios from 'axios';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
 import '../styles/Apifile.css';
+import Footer from '../components/footer.jsx';
+import '../styles/footer.css';
 
 function Apifile() {
   const [search, setSearch] = useState("");
@@ -16,7 +18,6 @@ function Apifile() {
       }
     })
       .then(res => {
-
         const data = res.data.result;
         setCurrency(data);
         const sortedData = [...data].sort((a, b) => b.priceChange1d - a.priceChange1d);  
@@ -35,8 +36,14 @@ function Apifile() {
   const filteredGainers = topMovers.gainers.filter(coin => desiredSymbols.includes(coin.symbol.toLowerCase()));
   const filteredLosers = topMovers.losers.filter(coin => desiredSymbols.includes(coin.symbol.toLowerCase()));
 
+  // Filter currencies based on search and desired symbols
+  const filteredCurrency = currency.filter((val) =>
+    val.name.toLowerCase().includes(search.toLowerCase()) &&
+    desiredSymbols.includes(val.symbol.toLowerCase())
+  );
+
   return (
-    <>
+    <div className='apifile'>
       <Nav className="nav" activeKey="/home">
         <div className="navbar-left">
           <Nav.Item>
@@ -55,14 +62,17 @@ function Apifile() {
 
       <div className="crypto-container">
         <h1 className="heading">Crypto Currency Prices</h1>
-        <input
-          type="text"
-          className="search-bar"
-          placeholder="Search by name..."
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <div className='search-out'>
+          <div className="search">
+            <input
+              placeholder="Search..."
+              type="text"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <button type="submit">Go</button>
+          </div>
+        </div>
 
-    
         <div className="top-movers">
           <div className="mover gainers">
             <h2>Top Gainers</h2>
@@ -97,7 +107,6 @@ function Apifile() {
 
         {/* Currency Table */}
         <div className="table-wrapper">
-         
           <table className="crypto-table">
             <thead>
               <tr>
@@ -111,29 +120,28 @@ function Apifile() {
               </tr>
             </thead>
             <tbody>
-              {currency
-                .filter((val) => desiredSymbols.includes(val.symbol.toLowerCase()))
-                .map((val) => (
-                  <tr key={val._id}>
-                    <td>{val.rank}</td>
-                    <td className="currency-name">
-                      <Link to={`/predict/${val.symbol.toLowerCase()}`}>
-                        <img src={val.icon} alt={val.name} className="currency-icon" />
-                        {val.name}
-                      </Link>
-                    </td>
-                    <td>{val.symbol}</td>
-                    <td>${val.marketCap.toLocaleString()}</td>
-                    <td>${val.price.toFixed(2)}</td>
-                    <td>{val.availableSupply.toLocaleString()}</td>
-                    <td>{val.volume.toLocaleString()}</td>
-                  </tr>
-                ))}
+              {filteredCurrency.map((val) => (
+                <tr key={val._id}>
+                  <td>{val.rank}</td>
+                  <td className="currency-name">
+                    <Link to={`/predict/${val.symbol.toLowerCase()}`}>
+                      <img src={val.icon} alt={val.name} className="currency-icon" />
+                      {val.name}
+                    </Link>
+                  </td>
+                  <td>{val.symbol}</td>
+                  <td>${val.marketCap.toLocaleString()}</td>
+                  <td>${val.price.toFixed(2)}</td>
+                  <td>{val.availableSupply.toLocaleString()}</td>
+                  <td>{val.volume.toLocaleString()}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </div>
-    </>
+      <Footer/>
+    </div>
   );
 }
 

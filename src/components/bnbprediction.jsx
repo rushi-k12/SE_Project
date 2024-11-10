@@ -42,6 +42,8 @@
     };
 
     return (
+
+      <div className='bit-container'>
       <div className="container">
         <h1>BNB Price Prediction</h1>
 
@@ -63,6 +65,7 @@
               <h3>Predicted Value for {predictionDate}: <span>${-1*(predictedValue/10000).toFixed(2)}</span></h3>
             </div>
           )}
+        </div>
         </div>
       </div>
     );

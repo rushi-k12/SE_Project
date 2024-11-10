@@ -42,6 +42,7 @@ function TetherPrediction() {
   };
 
   return (
+    <div className='bit-container'>
     <div className="container">
       <h1>Tether Price Prediction</h1>
 
@@ -63,6 +64,7 @@ function TetherPrediction() {
             <h3>Predicted Value for {predictionDate}: <span>${predictedValue.toFixed(2)}</span></h3>
           </div>
         )}
+      </div>
       </div>
     </div>
   );

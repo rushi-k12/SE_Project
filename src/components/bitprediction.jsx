@@ -41,27 +41,16 @@ function BitPrediction() {
   };
 
   return (
-    <div className="container">
+    
+      <div className='bit-container'>
+    <div className="container ">
+      
       <h1>Bitcoin Price Prediction</h1>
 
       {/* Historical Data */}
-      <h2>Historical Data</h2>
-      <table className="historical-table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Array.isArray(historicalData) && historicalData.length > 0 && historicalData.map((data, index) => (
-            <tr key={index}>
-              <td>{data.Date}</td>
-              <td>{data.Price}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <p className='note'><span>Note:</span>This prediction is based on previous years data</p>
+      
+     
 
       {/* Prediction */}
       <div className="prediction-section">
@@ -80,6 +69,8 @@ function BitPrediction() {
           </div>
         )}
       </div>
+      </div>
+      
     </div>
   );
 }
