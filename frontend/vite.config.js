@@ -7,10 +7,10 @@ export default defineConfig({
   server:{
     proxy:{
       '/api':{
-       target: "https://se-project-backend-jfga.onrender.com",
-         changeOrigin: true, 
+       target: "http://localhost:3000",
+        
        secure:false,
-         rewrite: (path) => path.replace(/^\/api/, ''),
+        
       
     }}
   },
