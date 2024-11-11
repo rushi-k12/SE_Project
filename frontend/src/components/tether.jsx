@@ -30,7 +30,7 @@ function TetherPrediction() {
     }
 
     try {
-      const response = await axios.post('https://se-project-1-i0i9.onrender.comapi/tether/predict', { date: predictionDate });
+      const response = await axios.post('https://se-project-1-i0i9.onrender.com/api/tether/predict', { date: predictionDate });
       
       setPredictedValue(response.data.predicted_value);
       setForecast(response.data.forecast);
