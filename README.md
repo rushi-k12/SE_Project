@@ -1,5 +1,4 @@
-# Cryptocurrency Price Prediction Platform
-
+# PriceProphet
 This project is a web-based platform designed to forecast future cryptocurrency prices based on historical data. Using advanced machine learning techniques, the platform provides real-time and historical data, along with a user-friendly interface for easy navigation and analysis. The project emphasizes scalability, security, and high performance to handle large data volumes and concurrent users.
 
 ## Features
@@ -41,11 +40,6 @@ npm install
 cd ../frontend
 npm install
 
-cd backend
-npm start
-
-cd frontend
-npm start
 
 ## Usage
 Register an account or log in to access the dashboard.
