@@ -3,7 +3,7 @@ This project is a web-based platform designed to forecast future cryptocurrency 
 
 ## Features
 
-- **Real-time and Historical Data Collection**: Fetches up-to-date and past cryptocurrency data through API integrations.
+- **Real-time Data Collection**: Fetches up-to-date cryptocurrency data through API integrations.
 - **Prediction Engine**: Utilizes statistical models, including Naive Forecasting, Linear Regression, and LSTM, for future price predictions.
 - **User Management**: Supports user registration, login, and profile management.
 - **Dashboard Interface**: Displays predictions and data insights through an intuitive user interface (UI).
@@ -14,7 +14,6 @@ This project is a web-based platform designed to forecast future cryptocurrency 
 ### Frontend
 - **React.js**: For a modular, component-based user interface.
 - **React Router**: Enables seamless navigation between sections without page reloads.
-- **Chart.js**: Used to create interactive and visually appealing data visualizations for the dashboard.
 
 ### Backend
 - **Node.js and Express.js**: For server-side operations and API creation.
@@ -24,7 +23,7 @@ This project is a web-based platform designed to forecast future cryptocurrency 
 ### Machine Learning Models
 - **Naive Forecasting**: Uses the last known data point for predictions as a benchmark.
 - **Linear Regression**: Establishes a relationship between time and price for trend prediction.
-- **LSTM (Long Short-Term Memory)**: Captures temporal dependencies and is highly suitable for time-series data forecasting.
+- **Exponential Smoothing**: Utilizes trend and seasonality components to make predictions, adapting to recurring patterns in the time series.
 
 ## Installation
 
