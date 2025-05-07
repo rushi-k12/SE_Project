@@ -35,8 +35,9 @@ const dispatch=useDispatch();
   const desiredSymbols = ['btc', 'bnb', 'doge', 'eth', 'sol', 'usdt', 'ton', 'trx', 'usdc', 'xrp'];
 
   // Filter top movers based on desired symbols
-  const filteredGainers = topMovers.gainers.filter(coin => desiredSymbols.includes(coin.symbol.toLowerCase()));
-  const filteredLosers = topMovers.losers.filter(coin => desiredSymbols.includes(coin.symbol.toLowerCase()));
+    const filteredGainers = topMovers.gainers;
+    const filteredLosers = topMovers.losers;
+
 
   // Filter currencies based on search and desired symbols
   const filteredCurrency = currency.filter((val) =>
@@ -46,7 +47,7 @@ const dispatch=useDispatch();
   const handleSignout=async()=>{
 try{
   dispatch(signOutstart());
-const res=await fetch('/api/auth/signout');
+const res=await fetch('https://se-project-pgdo.onrender.com/api/auth/signout');
 const data=await res.json();
 if(!res.ok){
   dispatch(signInFailure(data.message))

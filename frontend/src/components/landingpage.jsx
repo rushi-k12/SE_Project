@@ -6,7 +6,7 @@ const landingpage = () => {
   return (
     <div class="l-container">
     <div className='l-content'>
-        <h1>Welcome</h1>
+        <h1>PriceProphet</h1>
         <p>Unlock insights into cryptocurrency trends with real-time predictions. Get ahead in the market by understanding the future value of your favorite digital assets.</p>
         <div className='l-buttons'>
 <Link className='btns' to="/home"><button>
